@@ -27,4 +27,14 @@ npm start
 ```
 # créer la bd 
 symfony console doctrine:database:create
+# ajouter une entité
+symfony console make:entity ...
+# créer un fichier de migration
+symfony console make:migration
+# effectuer les migrations 
+symfony console doctrine:migrations:migrate
+# installer le package fixture
+symfony composer require orm-fixtures --dev
+# créer une fixture
+symfony console make:fixture
 ```
