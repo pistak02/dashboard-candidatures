@@ -6,3 +6,12 @@ En recherche active d'alternance, j'ai rencontré un problème : celui de garder
 - Symfony
 - React
 - PostgreSQL
+
+
+
+
+### Bloc-notes
+```
+docker-compose up -d # construire/démarrer l'image des containers
+docker exec -ti ... bash # Ouvrir un terminal dans un container
+```
