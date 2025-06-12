@@ -7,11 +7,24 @@ En recherche active d'alternance, j'ai rencontré un problème : celui de garder
 - React
 - PostgreSQL
 
+### Mémo
 
-
-
-### Bloc-notes
+#### Démarrage
 ```
-docker-compose up -d # construire/démarrer l'image des containers
-docker exec -ti ... bash # Ouvrir un terminal dans un container
+# construire/démarrer l'image des containers
+docker-compose up -d --build
+# ouvrir un terminal dans un container
+docker exec -ti ... bash
+# créer les apps
+symfony new ... --webapp
+npx create-react-app ...
+# lancer les serveurs
+symfony server:start --no-tls --listen-ip=0.0.0.0 --d
+npm start
+```
+
+#### BD
+```
+# créer la bd 
+symfony console doctrine:database:create
 ```
