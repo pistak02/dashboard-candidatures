@@ -37,4 +37,6 @@ symfony console doctrine:migrations:migrate
 symfony composer require orm-fixtures --dev
 # créer une fixture
 symfony console make:fixture
+
+# utilisation d'un type énuméré (via création d'une classe) pour restreindre les valeurs possibles du statut d'une candidature - ajout d'une liste déroulante plus tard
 ```

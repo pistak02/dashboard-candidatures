@@ -7,6 +7,8 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Metadata\ApiResource;
 
+use App\typeEnum\StatutC;
+
 #[ApiResource]
 #[ORM\Entity(repositoryClass: CandidatureRepository::class)]
 class Candidature
@@ -22,8 +24,8 @@ class Candidature
     #[ORM\Column(length: 255)]
     private ?string $poste = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $statut = null;
+    #[ORM\Column(type: 'string', enumType: StatutC::class)]
+    private ?StatutC $statut = null;
 
     #[ORM\Column(length: 255)]
     private ?string $lien_offre = null;
@@ -31,7 +33,7 @@ class Candidature
     #[ORM\Column(length: 255)]
     private ?string $adresse = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(type: 'text')]
     private ?string $notes = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
@@ -66,12 +68,12 @@ class Candidature
         return $this;
     }
 
-    public function getStatut(): ?string
+    public function getStatut(): ?StatutC
     {
         return $this->statut;
     }
 
-    public function setStatut(string $statut): static
+    public function setStatut(?StatutC $statut): static
     {
         $this->statut = $statut;
 
