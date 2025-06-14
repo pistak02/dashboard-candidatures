@@ -23,7 +23,7 @@ symfony server:start --no-tls --listen-ip=0.0.0.0 --d
 npm start
 ```
 
-#### BD
+#### BACK
 ```
 # créer la bd 
 symfony console doctrine:database:create
@@ -39,4 +39,12 @@ symfony composer require orm-fixtures --dev
 symfony console make:fixture
 
 # utilisation d'un type énuméré (via création d'une classe) pour restreindre les valeurs possibles du statut d'une candidature - ajout d'une liste déroulante plus tard
+```
+
+
+#### FRONT
+Ajout d'un .env pour régler le problème d'auto-reload lié à Docker/WSL (précise à Webpack l'adresse, le port et le chemin qu'il doit utiliser pour configurer les WebSockets)
+```
+# installer react-router
+npm install react-router-dom
 ```
