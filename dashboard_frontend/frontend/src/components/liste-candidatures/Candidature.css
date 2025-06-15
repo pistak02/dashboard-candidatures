@@ -1,0 +1,10 @@
+.candidature {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.logo-entreprise img {
+    max-height: 150px;
+    max-width: 150px;
+}

@@ -5,7 +5,34 @@
   font-family: "Inter", sans-serif;
 }
 
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: grey;
+  color: black;
+}
+
+#root {
+  height: 100%;
+}
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.main-content {
+  flex: 1;
+}
+
 a {
   text-decoration: none;
   color: inherit;
 }
+
+ul {
+  list-style-type: none;
+}
+
