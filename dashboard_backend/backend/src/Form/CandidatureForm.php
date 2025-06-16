@@ -15,7 +15,7 @@ class CandidatureForm extends AbstractType
             ->add('entreprise')
             ->add('poste')
             ->add('statut')
-            ->add('lien_offre')
+            ->add('lienOffre')
             ->add('adresse')
             ->add('notes')
             ->add('date')

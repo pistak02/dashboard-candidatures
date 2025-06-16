@@ -28,7 +28,7 @@ class Candidature
     private ?StatutC $statut = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $lien_offre = null;
+    private ?string $lienOffre = null;
 
     #[ORM\Column(length: 255)]
     private ?string $adresse = null;
@@ -82,12 +82,12 @@ class Candidature
 
     public function getLienOffre(): ?string
     {
-        return $this->lien_offre;
+        return $this->lienOffre;
     }
 
-    public function setLienOffre(string $lien_offre): static
+    public function setLienOffre(string $lienOffre): static
     {
-        $this->lien_offre = $lien_offre;
+        $this->lienOffre = $lienOffre;
 
         return $this;
     }

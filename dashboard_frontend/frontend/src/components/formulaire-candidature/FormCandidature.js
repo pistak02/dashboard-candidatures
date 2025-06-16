@@ -1,45 +1,60 @@
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import './FormCandidature.css';
+import { fetchStatuts } from '../../services/statutService';
 
-function FormCandidature(){
-    const navigate=useNavigate();
+function FormCandidature( { formData, setFormData }){
+    const [statuts, setStatuts] = useState ([]);
 
-    const handleClick = () => {
-        navigate('/accueil');
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prev) => ({
+            ...prev,
+            [name]: value,
+        }));
     };
 
-    return (
-        
+    useEffect (() => {
+        fetchStatuts()
+            .then((data) => {
+                console.log("Statuts récupérés :", data);
+                setStatuts(data || []);
+            })
+            .catch((err) => console.error(err));
+    }, []);
 
+    return (
         <div className='form-candidature'>
             <div className='champs'>
                 <div className='entreprise'>
                     <label htmlFor='entreprise'>Nom de l'entreprise</label>
-                    <input type='text' name='entreprise' id='entreprise'></input>
+                    <input type='text' name='entreprise' id='entreprise' value={formData.entreprise} onChange={handleChange}></input>
                 </div>
                 <div className='poste'>
                     <label htmlFor='poste'>Intitulé du poste</label>
-                    <input type='text' name='poste' id='poste'></input>
+                    <input type='text' name='poste' id='poste' value={formData.poste} onChange={handleChange}></input>
                 </div>
                 <div className='adresse'>
                     <label htmlFor='adresse'>Adresse</label>
-                    <input type='text' name='adresse' id='adresse'></input>
+                    <input type='text' name='adresse' id='adresse' value={formData.adresse} onChange={handleChange}></input>
                 </div>
                 <div className='statut'>
                     <label htmlFor='statut'>Statut</label>
-                    <select name='statut' id='statut'></select>
+                    <select name='statut' id='statut' value={formData.statut} onChange={handleChange}>
+                        <option value="">-- Sélectionnez un statut --</option>
+                        {statuts.map((s) => (
+                            <option key={s.code} value={s.label}>{s.label}</option>
+                        ))}
+                    </select>
                 </div>
                 <div className='lien'>
                     <label htmlFor='lien'>Lien de l'annonce</label>
-                    <input type='text' name='lien' id='lien'></input>
+                    <input type='text' name='lienOffre' id='lien' value={formData.lienOffre} onChange={handleChange}></input>
                 </div>
-            </div>
-            
-            <div className='btn-valider'>
-                <button onClick={handleClick}> 
-                    Ajouter
-                </button>
-            </div>
+                <div className='notes'>
+                    <label htmlFor='notes'>Notes</label>
+                    <textarea name='notes' id='notes' value={formData.notes} onChange={handleChange}></textarea>
+                </div>
+            </div> 
         </div>
     );
 }

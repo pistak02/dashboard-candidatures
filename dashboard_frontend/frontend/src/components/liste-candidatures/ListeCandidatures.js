@@ -10,7 +10,7 @@ function ListeCandidatures(){
     useEffect (() => {
         fetchCandidatures()
             .then((data) => {
-                    setCandidatures(data.member || []);
+                setCandidatures(data.member || []);
             })
             .catch((err) => console.error(err));
         }, []);
