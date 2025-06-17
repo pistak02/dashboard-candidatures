@@ -9,17 +9,17 @@ function DetailsCandidature(){
     const [candidature, setCandidature] = useState(null);
 
     useEffect(() => {
-    const fetchCandidature = async () => {
-        try {
-            const data = await getCandidatureById({ id });
-            setCandidature(data);
-        } catch (error) {
-            console.error("Erreur lors du chargement de la candidature :", error);
-        }
-    };
+        const fetchCandidature = async () => {
+            try {
+                const data = await getCandidatureById({ id });
+                setCandidature(data);
+            } catch (error) {
+                console.error("Erreur lors du chargement de la candidature :", error);
+            }
+        };
 
-  fetchCandidature();
-}, [id]);
+        fetchCandidature();
+    }, [id]);
 
     return (
         <div>
