@@ -56,7 +56,11 @@ Création d'un service qui récupère le json des candidatures de la BD via l'AP
 Deuxième service qui sert à la même chose pour le type énuméré Statut
 (pense à changer le localhost lors du déploiement)
 
-MAJ de ce service avec toutes les méthodes CRUD pour le site, et utilisation dans les pages
+MAJ de ce service avec toutes les méthodes CRUD pour le site, et utilisation dans les pages. Ajout de la méthode patch pour modifier seulement un attribut (ici le statut sur la page d'accueil)
+
+Ajout du logo auto (via l'API Clearbit)
+
+Modification de la structure des candidatures : un composant CandidaturePourLaListe (auquel j'ai ajouté une props afficherAction pour masquer les boutons d'action sur la page détaillée, et une props onRefresh pour rafraichir uniquement et pas la page entière lors de la suppression d'un composant) que je réutilise dans le composant CandidatureDetaillee 
 
 - Visualisation des candidatures &#x2611;
 - Ajout d'une candidature &#x2611;
@@ -68,3 +72,8 @@ MAJ de ce service avec toutes les méthodes CRUD pour le site, et utilisation da
 # installer react-router
 npm install react-router-dom
 ```
+
+
+#### Améliorations 
+
+- Créer un composant SelectStatut pour factoriser le code lié à la liste déroulante des statuts

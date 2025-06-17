@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
 import './FormCandidature.css';
-import { fetchStatuts } from '../../services/statutService';
+import { useState, useEffect } from 'react';
+import { fetchStatuts } from '../../../services/statutService';
 
 function FormCandidature( { formData, setFormData }){
     const [statuts, setStatuts] = useState ([]);

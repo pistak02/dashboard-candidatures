@@ -1,4 +1,4 @@
-import FormCandidature from "../components/formulaire-candidature/FormCandidature";
+import FormCandidature from "../components/candidatures/formulaire/FormCandidature";
 import PrimaryButton from "../components/PrimaryButton";
 import { createCandidature } from "../services/candidatureService";
 import { useState } from "react";

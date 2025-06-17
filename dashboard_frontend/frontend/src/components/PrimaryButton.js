@@ -1,6 +1,8 @@
+import './PrimaryButton.css';
+
 function PrimaryButton({ onClick, children }){
     return (
-        <button onClick={onClick} className="btn-formulaire">
+        <button onClick={onClick}>
             {children}
         </button>
     );

@@ -64,3 +64,20 @@ export async function deleteCandidature({ id }){
 
     return true;
 }
+
+export async function patchCandidature({ id, data }){
+    const response = await fetch(`${API_BASE_URL}/candidatures/${id}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/merge-patch+json',
+            'Accept': 'application/ld+json',
+        },
+        body: JSON.stringify(data),
+    });
+
+    if (!response.ok) {
+        throw new Error("Erreur lors de la modification de la candidature");
+    }
+
+    return await response.json();
+}

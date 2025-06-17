@@ -1,4 +1,4 @@
-import ListeCandidatures from "../components/liste-candidatures/ListeCandidatures";
+import ListeCandidatures from "../components/candidatures/liste/ListeCandidatures";
 
 function Home(){
     return (
