@@ -6,7 +6,7 @@ En recherche active d'alternance, j'ai rencontré un problème : celui de garder
 - Symfony
 - React
 - PostgreSQL
-  (Containers Docker)
+- (Containers Docker)
 
 ### Mémo
 
