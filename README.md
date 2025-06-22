@@ -64,9 +64,9 @@ Modification de la structure des candidatures : un composant CandidaturePourLaLi
 
 - Visualisation des candidatures &#x2611;
 - Ajout d'une candidature &#x2611;
-- Visualation des détails d'une candidature &#x2612;
-- Modification d'une candidature &#x2612;
-- Suppression d'une candidature &#x2612;
+- Visualation des détails d'une candidature &#x2611;
+- Modification d'une candidature &#x2611;
+- Suppression d'une candidature &#x2611;
 
 Remplacement du Header par une Sidebar (simple préférence perso), changement de police globale, création du logo (rapide) sur Figma et style sur toutes les pages.
 
