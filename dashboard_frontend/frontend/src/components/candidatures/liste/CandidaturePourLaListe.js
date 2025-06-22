@@ -16,7 +16,7 @@ function CandidaturePourLaListe({ data, afficherActions = true, onRefresh }){
                     </div>
                 </a>
             </div>
-            <div className='poste'>
+           <div className='poste'>
                 {poste}
             </div>
             <div className={`statut ${statut.toLowerCase().replace(/\s+/g, '-')}`}> {/* pour avoir des noms de classes 'statut valeur-statut' automatiquement*/} 
