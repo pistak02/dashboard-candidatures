@@ -52,3 +52,17 @@
     width: 36px;
     height: 36px;
 }
+
+
+@media screen and (max-width: 768px) {
+    .titres-sections {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 12px;
+    }
+
+    .candidature-simplifiee {
+    grid-template-columns: 2fr 1fr;
+  }
+}
