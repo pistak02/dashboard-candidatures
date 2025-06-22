@@ -68,6 +68,8 @@ Modification de la structure des candidatures : un composant CandidaturePourLaLi
 - Modification d'une candidature &#x2612;
 - Suppression d'une candidature &#x2612;
 
+Remplacement du Header par une Sidebar (simple préférence perso), changement de police globale, création du logo (rapide) sur Figma et style sur toutes les pages.
+
 ```
 # installer react-router
 npm install react-router-dom

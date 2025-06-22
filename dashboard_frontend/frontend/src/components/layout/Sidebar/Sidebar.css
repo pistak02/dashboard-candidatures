@@ -1,0 +1,91 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: sticky;
+    width: 300px;
+    top: 0;
+    height: 35vh;
+    padding: 32px 16px;
+    background-color: #fafafa;
+
+    animation: slideInLeft 0.5s ease-out forwards;
+}
+
+.logo {
+    width: 64px;
+    margin-bottom: 20px;
+}
+
+.sections {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+    width: 100%;
+
+}
+
+.dashboard, .nvl-cand, .about {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 24px;
+    width: 95%;
+    height: 48px;
+    padding: 18px 20px;
+    transition: all 0.3s ease;
+}
+
+.dashboard:hover, .nvl-cand:hover, .about:hover ,.dashboard.active, .nvl-cand.active, .about.active{
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    background: linear-gradient(white, white) padding-box,
+                linear-gradient(45deg, #68A16F, #B0CEA1) border-box;
+    border: 1px solid transparent;
+    color: #80c799;
+    
+} 
+
+.home, .plus, .interrogation {
+    height: 24px;
+    width: 24px;
+}
+
+.plus {
+    fill: #333;
+}
+
+.nvl-cand:hover .plus, .nvl-cand.active .plus {
+    fill: #80c799;
+}
+
+.home {
+    stroke: #333;
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+}
+
+.dashboard:hover .home , .about:hover .interrogation, .about.active .interrogation {
+    stroke: #80c799;
+}
+
+.interrogation {
+    stroke: #333;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    fill: none;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-30%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

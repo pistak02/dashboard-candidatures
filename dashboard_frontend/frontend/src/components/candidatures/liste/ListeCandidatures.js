@@ -1,9 +1,7 @@
 import './ListeCandidatures.css';
 import CandidaturePourLaListe from './CandidaturePourLaListe';
-import AjouterCandidature from '../ajouter/AjouterCandidature';
 import { useEffect, useState } from 'react';
 import { fetchCandidatures } from '../../../services/candidatureService';
-import { data } from 'react-router-dom';
 
 function ListeCandidatures(){
     const [candidatures, setCandidatures] = useState([]);
@@ -16,26 +14,31 @@ function ListeCandidatures(){
             .catch((err) => console.error(err));
     }, []);
 
-    
-    const handleRefresh = async () => {
-        try {
-            const data = await fetchCandidatures();
-            setCandidatures(data.member || []);
-        } catch (error) {
-            console.error("Erreur lors du refresh:", error);
-        }
+    const refreshCandidatures = async () => {
+        const data = await fetchCandidatures();
+        setCandidatures(data.member || []);
     };
-        
 
     return (
         <div className='liste-candidatures'>
             <div className='candidatures'>
+                <div className='titres-sections'>
+                    <div className='titre'>
+                        Entreprise
+                    </div>
+                    <div className='titre'>
+                        Poste
+                    </div>
+                    <div className='titre'>
+                        Statut
+                    </div>
+                    <div className='titre'>
+                        Actions
+                    </div>
+                </div>
                 {candidatures.map((candidature) => (
-                    <CandidaturePourLaListe key={candidature.id} data={candidature} onRefresh={handleRefresh} />
+                    <CandidaturePourLaListe key={candidature.id} data={candidature} onRefresh={refreshCandidatures} />
                 ))}
-            </div>
-            <div className='nouvelle-cand'>
-                <AjouterCandidature></AjouterCandidature>
             </div>
         </div>
     );

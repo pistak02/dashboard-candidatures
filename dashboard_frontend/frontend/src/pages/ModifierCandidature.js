@@ -1,9 +1,10 @@
 import { patchCandidature } from "../services/candidatureService";
-import { data, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getCandidatureById } from "../services/candidatureService";
 import { useState, useEffect } from "react";
 import FormCandidature from "../components/candidatures/formulaire/FormCandidature";
-import PrimaryButton from "../components/PrimaryButton";
+import PrimaryButton from "../components/boutons/PrimaryButton";
+import Title from "../components/layout/Title/Title";
 
 function ModifierCandidature(){
     const { id } = useParams();
@@ -35,7 +36,7 @@ function ModifierCandidature(){
 
         try {
             await patchCandidature({ id, data: nouvelleData });
-            navigate('/accueil');
+            navigate('/');
         } catch (error) {
             console.error("Erreur lors de la mise à jour de la candidature :", error);
         }
@@ -46,10 +47,12 @@ function ModifierCandidature(){
 
     return (
         <div className="modifier-candidature">
-            <h1>Modifier la Candidature</h1>
+            <Title>Modifier la candidature</Title>
             <form onSubmit={handleSubmit}>
                 <FormCandidature formData={formData} setFormData={setFormData} />
-                <PrimaryButton type="submit">Enregistrer</PrimaryButton>
+                <div className="form-submit">
+                    <PrimaryButton type="submit">Enregistrer</PrimaryButton>
+                </div>
             </form>
         </div>
     )

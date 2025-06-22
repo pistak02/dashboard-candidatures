@@ -1,0 +1,31 @@
+.liste-candidatures {
+    padding: 24px;
+}
+
+.candidatures {
+    border: 1px solid #e0e0e0;
+    border-radius: 20px;
+    padding: 0px;
+}
+
+.titres-sections,
+.candidature-simplifiee {
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr 0.29fr;
+    padding: 20px 10px 20px 18px;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.titres-sections {   
+    background-color: #f5f5f5;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    text-transform: uppercase;
+}
+
+.candidature-simplifiee:last-child {
+    border: none;
+}
+
+

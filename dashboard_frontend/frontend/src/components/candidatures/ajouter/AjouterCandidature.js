@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import './AjouterCandidature.css';
+import PrimaryButton from '../../boutons/PrimaryButton';
 
 function AjouterCandidature(){
     const navigate = useNavigate();
@@ -9,9 +10,9 @@ function AjouterCandidature(){
     };
     
     return (
-        <button onClick={handleClick}>
+        <PrimaryButton onClick={handleClick}>
             Ajouter
-        </button>
+        </PrimaryButton>
     );
 }
 

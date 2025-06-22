@@ -23,7 +23,6 @@ function DetailsCandidature(){
 
     return (
         <div>
-            <h1>DétailsCandidature</h1>
             <CandidatureDetaillee candidature={candidature} />
         </div>
     )

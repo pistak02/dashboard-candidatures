@@ -1,10 +1,10 @@
 import ListeCandidatures from "../components/candidatures/liste/ListeCandidatures";
+import Title from "../components/layout/Title/Title";
 
 function Home(){
     return (
         <div>
-            <h1>Home</h1>
-            <p>Ceci est la page d'accueil</p>
+            <Title>Candidatures</Title>
             <ListeCandidatures />
         </div>
     )

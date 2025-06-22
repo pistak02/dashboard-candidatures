@@ -2,19 +2,17 @@ import './App.css';
 import { BrowserRouter } from 'react-router-dom';
 import RouterConfig from './routes';
 
-import Header from './components/layout/Header/Header';
-import Footer from './components/layout/Footer/Footer';
+import Sidebar from './components/layout/Sidebar/Sidebar';
 
 function App() {
   return (
-    <div className='app-container glass'>
-      <Header/>
+    <div className='app-container'>
       <BrowserRouter>
+        <Sidebar/>
         <main className='main-content'>
           <RouterConfig/>
         </main>
       </BrowserRouter>
-      <Footer/>
     </div>
     
   );

@@ -27,19 +27,19 @@ function FormCandidature( { formData, setFormData }){
             <div className='champs'>
                 <div className='entreprise'>
                     <label htmlFor='entreprise'>Nom de l'entreprise</label>
-                    <input type='text' name='entreprise' id='entreprise' value={formData.entreprise} onChange={handleChange}></input>
+                    <input type='text' name='entreprise' id='entreprise' value={formData.entreprise} onChange={handleChange} required></input>
                 </div>
                 <div className='poste'>
                     <label htmlFor='poste'>Intitulé du poste</label>
-                    <input type='text' name='poste' id='poste' value={formData.poste} onChange={handleChange}></input>
+                    <input type='text' name='poste' id='poste' value={formData.poste} onChange={handleChange} required></input>
                 </div>
                 <div className='adresse'>
                     <label htmlFor='adresse'>Adresse</label>
                     <input type='text' name='adresse' id='adresse' value={formData.adresse} onChange={handleChange}></input>
                 </div>
-                <div className='statut'>
+                <div className='statut.form'>
                     <label htmlFor='statut'>Statut</label>
-                    <select name='statut' id='statut' value={formData.statut} onChange={handleChange}>
+                    <select name='statut' id='statut' value={formData.statut} onChange={handleChange} required>
                         <option value="">-- Sélectionnez un statut --</option>
                         {statuts.map((s) => (
                             <option key={s.code} value={s.label}>{s.label}</option>
