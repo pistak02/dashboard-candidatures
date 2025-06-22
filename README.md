@@ -80,3 +80,6 @@ npm install react-router-dom
 #### Améliorations 
 
 - Créer un composant SelectStatut pour factoriser le code lié à la liste déroulante des statuts
+- Faire afficher des statistiques
+- Gérer l'authentification
+- Filtrage sur la liste
