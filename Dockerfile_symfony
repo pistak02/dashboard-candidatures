@@ -1,0 +1,39 @@
+FROM php:8.3-fpm-alpine
+
+ARG USERNAME
+ARG UID
+ARG EMAIL
+ARG NAME
+
+# Installation de php, composer, symfony CLI et pdo_pgsql dans un seul RUN
+RUN apk --no-cache update && apk --no-cache add bash git npm shadow curl postgresql-dev postgresql-client && \
+    docker-php-ext-install pdo_pgsql && \
+    php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
+    php composer-setup.php --install-dir=/usr/local/bin --filename=composer && \
+    php -r "unlink('composer-setup.php');" && \
+    curl -sS https://get.symfony.com/cli/installer | bash && \
+    mv /root/.symfony*/bin/symfony /usr/local/bin/symfony && \
+    echo "UID_MAX 9223372036854775807" > /etc/login.defs && \
+    /usr/sbin/useradd -m -s /bin/sh -u "$UID" $USERNAME
+
+
+# Copie le script d'entrée
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+
+# Donne les droits d'exécution
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
+# Passe à l'utilisateur non-root
+USER $USERNAME
+
+# Configure git pour cet utilisateur
+RUN git config --global user.email "$EMAIL" && \
+    git config --global user.name "$NAME"
+
+# Dossier de travail    
+WORKDIR /var/www/html
+
+
+
+# Lancer le script d'entrée comme CMD
+CMD ["/usr/local/bin/entrypoint.sh"]

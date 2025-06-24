@@ -1,0 +1,55 @@
+services:
+  symfony:
+    build:
+      context: .
+      dockerfile: Dockerfile_symfony
+      args:
+        USERNAME: moha
+        UID: 1000
+        EMAIL: "pistakdev@gmail.com"
+        NAME: Benabidi Mohamed
+    container_name: symfony_server_TC
+    volumes:
+      - ./dashboard_backend/backend:/var/www/html
+    ports:
+      - "8082:8000"
+    environment:
+      PHP_IDE_CONFIG: serverName=symfony_server
+      PS1: "[Symfony|$$(whoami)|$$(basename $$(pwd))] "
+    depends_on:
+      - postgres
+    tty: true
+    stdin_open: true
+
+  react:
+    build:
+      context: .
+      dockerfile: Dockerfile_react
+      args:
+        USERNAME: moha
+        UID: 1000
+        EMAIL: "pistakdev@gmail.com"
+        NAME: Benabidi Mohamed
+    container_name: react_server_TC
+    volumes:
+      - ./dashboard_frontend/frontend:/var/www/html
+    ports:
+      - "8081:3000"
+    tty: true
+    stdin_open: true
+
+  postgres:
+    image: postgres:15
+    container_name: dashboard_bd
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: requin
+      POSTGRES_DB: DashbordBD
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  postgres_data:
+    driver: local

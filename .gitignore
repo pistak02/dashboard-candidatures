@@ -1,4 +1,3 @@
-# === Docker ===
-compose.yml
-Dockerfile_react
-Dockerfile_symfony
+node_modules/
+.env
+vendor/

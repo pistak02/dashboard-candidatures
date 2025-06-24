@@ -1,0 +1,28 @@
+FROM alpine:latest
+
+ARG USERNAME
+ARG UID
+ARG EMAIL
+ARG NAME
+
+# Installation de npm, nodejs, git et bash
+RUN apk --no-cache update && \
+    apk --no-cache add bash git shadow wget && \
+    apk --no-cache add npm 'nodejs>20.11' && \
+    npm install -g typescript && \
+    npm install -g react-scripts && \
+    # Gestion user
+    echo "UID_MAX 9223372036854775807" > /etc/login.defs && \
+    /usr/sbin/useradd -m -s /bin/sh -u "$UID" $USERNAME
+
+# Spécifique à l'utilisateur
+USER $USERNAME
+# Configuration de git
+RUN git config --global user.email "$EMAIL" && \
+    git config --global user.name "$NAME"
+
+# Dossier de travail
+WORKDIR /var/www/html
+
+# Lancement du serveur
+CMD ["npm", "start"]

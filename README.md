@@ -7,6 +7,36 @@ En recherche active d'alternance, j'ai rencontré un problème : celui de garder
 - React
 - PostgreSQL
 
+## Prérquis
+- Docker et Docker Compose installés sur votre machine
+- Ports libres : 8081 (frontend), 8082 (backend) et 5432 (PostgreSQL)
+
+## Lancer le projet
+
+1. Clonez le dépôt
+```
+git clone https://github.com/pistak02/dashboard-candidatures.git
+cd dashboard-candidatures
+```
+
+2. Lancez les containers
+```
+docker compose up --build
+```
+
+3. Accédez aux applications dans le navigateur :
+- Frontend React : http://localhost:8081
+- API Symfony : http://localhost:8082/api
+
+## Fonctionnement
+- Au démarrage, la base PostgreSQL est initialisée avec un volume persistant
+- Les migrations Doctrine sont appliquées automatiquement via le script d'entrée (entrypoint.sh) du backend
+- Le serveur Symfony tourne en mode développement sur le port 8000 (redirigé en 8082 dans le docker-compose)
+- Le frontend React utilise react-scripts et tourne sur le port 3000 (redirigé en 8081)
+
+## Déploiement/Mise en prod
+J'ai essayé de mettre l'application en production (en utilisant Railway, Heroku, Supabase...) mais je n'ai pas réussi à finaliser un déploiement stable pour le moment. L'application fonctionne parfaitement en environnement Docker Compose, mais un déploiement en production nécessite encore quelques ajustements. Je prévois de revenir sur ce sujet prochainement pour améliorer la robustesse et la sécurité en prod.
+
 ### Mémo
 
 #### Démarrage
@@ -68,7 +98,9 @@ Modification de la structure des candidatures : un composant CandidaturePourLaLi
 - Modification d'une candidature &#x2612;
 - Suppression d'une candidature &#x2612;
 
-Remplacement du Header par une Sidebar (simple préférence perso), changement de police globale, création du logo (rapide) sur Figma et style sur toutes les pages.
+Remplacement du Header par une Sidebar (simple préférence perso), changement de police globale, création du logo sur Figma et style sur toutes les pages.
+
+Ajout du responsive
 
 ```
 # installer react-router
@@ -79,3 +111,5 @@ npm install react-router-dom
 #### Améliorations 
 
 - Créer un composant SelectStatut pour factoriser le code lié à la liste déroulante des statuts
+- Permettre de trier la liste par champ
+- Ajouter la gestion de l'authentification et des rôles
