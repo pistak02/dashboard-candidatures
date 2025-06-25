@@ -4,10 +4,10 @@ services:
       context: .
       dockerfile: Dockerfile_symfony
       args:
-        USERNAME: moha
-        UID: 1000
-        EMAIL: "pistakdev@gmail.com"
-        NAME: Benabidi Mohamed
+        USERNAME: ${USERNAME}
+        UID: ${UID}
+        EMAIL: ${EMAIL}
+        NAME: ${NAME}
     container_name: symfony_server_TC
     volumes:
       - ./dashboard_backend/backend:/var/www/html
@@ -26,10 +26,10 @@ services:
       context: .
       dockerfile: Dockerfile_react
       args:
-        USERNAME: moha
-        UID: 1000
-        EMAIL: "pistakdev@gmail.com"
-        NAME: Benabidi Mohamed
+        USERNAME: ${USERNAME}
+        UID: ${UID}
+        EMAIL: ${EMAIL}
+        NAME: ${NAME}
     container_name: react_server_TC
     volumes:
       - ./dashboard_frontend/frontend:/var/www/html

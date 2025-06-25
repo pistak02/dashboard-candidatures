@@ -14,13 +14,18 @@ En recherche active d'alternance, j'ai rencontré un problème : celui de garder
 ## Lancer le projet
 
 1. Clonez le dépôt
-```
+```bash
 git clone https://github.com/pistak02/dashboard-candidatures.git
 cd dashboard-candidatures
 ```
 
-2. Lancez les containers
+3. Copiez le fichier `.env.example` en `.env` et adaptez les valeurs :
+```bash
+cp .env.example .env
 ```
+
+2. Lancez les containers
+```bash
 docker compose up --build
 ```
 
