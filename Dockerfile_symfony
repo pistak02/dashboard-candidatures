@@ -18,6 +18,7 @@ RUN apk --no-cache update && apk --no-cache add bash git npm shadow curl postgre
 
 
 # Copie le script d'entrée
+USER root
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 
 # Donne les droits d'exécution
@@ -32,8 +33,6 @@ RUN git config --global user.email "$EMAIL" && \
 
 # Dossier de travail    
 WORKDIR /var/www/html
-
-
 
 # Lancer le script d'entrée comme CMD
 CMD ["/usr/local/bin/entrypoint.sh"]

@@ -32,7 +32,7 @@ services:
         NAME: ${NAME}
     container_name: react_server_TC
     volumes:
-      - ./dashboard_frontend/frontend:/var/www/html
+      - ./dashboard_frontend/frontend/src:/var/www/html/src
     ports:
       - "8081:3000"
     tty: true
@@ -44,7 +44,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: requin
-      POSTGRES_DB: DashbordBD
+      POSTGRES_DB: DashboardBD
     volumes:
       - postgres_data:/var/lib/postgresql/data
     ports:

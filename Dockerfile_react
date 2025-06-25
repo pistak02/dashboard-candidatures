@@ -15,14 +15,21 @@ RUN apk --no-cache update && \
     echo "UID_MAX 9223372036854775807" > /etc/login.defs && \
     /usr/sbin/useradd -m -s /bin/sh -u "$UID" $USERNAME
 
+# Dossier de travail
+WORKDIR /var/www/html
+# Copie les fichiers package.json pour installer les dépendances
+COPY dashboard_frontend/frontend/package*.json ./
+RUN npm install && \
+    chown -R "$UID:$UID" /var/www/html
+
 # Spécifique à l'utilisateur
 USER $USERNAME
 # Configuration de git
 RUN git config --global user.email "$EMAIL" && \
     git config --global user.name "$NAME"
 
-# Dossier de travail
-WORKDIR /var/www/html
+# Copie du reste du code
+COPY dashboard_frontend/frontend/ .
 
 # Lancement du serveur
 CMD ["npm", "start"]
